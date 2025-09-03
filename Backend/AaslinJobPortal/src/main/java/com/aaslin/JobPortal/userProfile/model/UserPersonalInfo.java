@@ -45,4 +45,8 @@ public class UserPersonalInfo {
     @MapsId
     @JoinColumn(name = "email")
     private RegisterUser registerUser;
+    
+    @OneToOne
+    @JoinColumn(name="userPersonalInfo")
+    private JobSeekerProfile jobSeekerProfile;
 }

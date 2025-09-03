@@ -10,7 +10,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
-import java.util.Random;
 import java.util.Set;
 
 @Data
@@ -20,29 +19,34 @@ import java.util.Set;
 public class JobPost {
 
     @Autowired
-    CustomIDGenerator generator;
+    @Transient
+    private CustomIDGenerator generator;
 
     @Id
+    @Column(name = "job_post_id", length = 50)
     private String id;
+
     @PrePersist
     public void generateId() {
         if (id == null) {
-            id = generator.generateCustomId("JOBID");  //change later
+            id = generator.generateCustomId("JOBID");
         }
     }
 
-    @Column(length = 200)
+    @Column(length = 200, nullable = false)
     private String title;
 
+    @Lob
     private String description;
 
     @Column(length = 200)
-    private String location;  //location of our company
-
-//    private String CTC;
+    private String location;
 
     private String experienceRequired;
 
+    @ElementCollection
+    @CollectionTable(name = "jobpost_skills", joinColumns = @JoinColumn(name = "job_post_id"))
+    @Column(name = "skill")
     private Set<String> skillsRequired;
 
     @CreationTimestamp
@@ -53,9 +57,9 @@ public class JobPost {
 
     private Boolean isActive = Boolean.TRUE;
 
-    @OneToMany(mappedBy = "jobPost", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "jobPost")
     private Set<JobApplication> applications;
 
-    @OneToMany(mappedBy = "jobPost", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "jobPost")
     private Set<SavedJob> savedJobs;
 }
