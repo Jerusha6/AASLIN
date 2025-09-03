@@ -10,10 +10,14 @@ import { Router } from '@angular/router';
   styleUrl: './login.css'
 })
 export class Login {
+
   constructor(private router : Router){
   }
 signupPage() {
   this.router.navigateByUrl("/signup");
+}
+forgotUpdatePassword() {
+this.router.navigateByUrl("/")
 }
 form : FormGroup = new FormGroup({
     username : new FormControl('',[Validators.required]),
