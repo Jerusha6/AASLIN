@@ -14,13 +14,12 @@ import lombok.*;
 public class Admin {
 
     @Id
-    @EqualsAndHashCode.Include
     @Column(name = "user_email", length = 100, nullable = false)
     private String userEmail;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_email", referencedColumnName = "email", insertable = false, updatable = false)
-    private User user;
+    private RegisterUser user;
 
     @Column(length = 100)
     private String role;

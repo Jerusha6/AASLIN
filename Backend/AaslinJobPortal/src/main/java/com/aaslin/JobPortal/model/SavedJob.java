@@ -44,7 +44,7 @@ public class SavedJob {
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("saverEmail")
     @JoinColumn(name = "saver_email", referencedColumnName = "email")
-    private User saver;
+    private RegisterUser saver;
 
     @Column(name = "saved_at")
     private LocalDateTime savedAt = LocalDateTime.now();

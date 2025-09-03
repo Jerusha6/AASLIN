@@ -22,7 +22,7 @@ public class JobSeekerProfile {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_email", referencedColumnName = "email", insertable = false, updatable = false)
-    private User user;
+    private RegisterUser registerUser;
 
     @Lob
     private String bio;
