@@ -10,7 +10,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@ToString(exclude = {"user", "skills", "resume"})
+@ToString(exclude = {"user", "skills", "resume", "educations"})
 @Entity
 @Table(name = "jobseeker_profiles")
 public class JobSeekerProfile {
@@ -26,9 +26,6 @@ public class JobSeekerProfile {
 
     @Lob
     private String bio;
-
-    @Lob
-    private String education;
 
     @Column(name = "years_of_experience")
     private Integer yearsOfExperience;
@@ -47,4 +44,13 @@ public class JobSeekerProfile {
 
     @Lob
     private byte[] resume;
+
+    @OneToMany(
+        mappedBy = "profile",
+        cascade = CascadeType.ALL,
+        orphanRemoval = true,
+        fetch = FetchType.LAZY
+    )
+    @OrderBy("graduationYear DESC, id DESC")
+    private Set<Education> educations;
 }
