@@ -1,0 +1,95 @@
+.container {
+    max-width: 500px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #0e2240;
+    margin-bottom: 25px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.label-class {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #0e2240;
+}
+
+.input-class {
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    padding: 10px;
+    font-size: 15px;
+    border: 2px solid rgb(209, 211, 212);
+    border-radius: 8px;
+    outline: none;
+}
+
+label {
+    padding: 0px;
+    margin: 0px;
+}
+
+.input-Div {
+    row-gap: 5px;
+    width: 100%;
+}
+
+.action-section {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    margin-top: 20px;
+}
+
+.forgot {
+    text-align: end;
+    margin-top: 10px;
+    color: #0e2240;
+}
+
+.buttonDiv {
+    display: flex;
+    justify-content: space-around;
+}
+
+#loginButton {
+    display: flex;
+    justify-content: center;
+    padding: 10px 18px;
+    margin: 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+    background-color: #b82228;
+    color: white;
+    cursor: pointer;
+}
+
+#loginButton:hover {
+    background-color: #86171b;
+}
+
+.signUp {
+    margin-top: 10px;
+    text-align: center;
+    color: #0e2240;
+}
+
+.error {
+    color: rgb(148, 32, 32);
+    font-size: 13px;
+    display: block;
+}
