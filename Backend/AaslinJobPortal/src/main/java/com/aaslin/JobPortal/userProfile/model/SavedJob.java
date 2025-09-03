@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -14,8 +13,13 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Entity
 public class SavedJob {
+	
+	@Id
+    private String id;
 
-
+	@ManyToOne
+	@MapsId
+    @JoinColumn(name = "job_post_id")
     private JobPost jobPost;
 
     private LocalDate applicationDeadline;

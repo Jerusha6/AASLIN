@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 public class RegisterUser {
 
     @Id
-    @Column(nullable = false)
+    @Column(name="email", nullable = false)
     private String email;
 
     @Column(nullable = false)
@@ -35,9 +35,7 @@ public class RegisterUser {
     private Boolean isActive;
 
     @OneToOne(mappedBy = "registerUser", cascade = CascadeType.ALL)
-    private UserPersonalInfo userPersonalInfo;
-
-    @OneToOne(mappedBy = "userEducation", cascade = CascadeType.ALL)
     private UserEducationInfo userEducationInfo;
+
 
 }

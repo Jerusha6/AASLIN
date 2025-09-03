@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 public class UserEducationInfo {
 
     @Id
+    @Column(name="email", nullable = false)
     private String email;
 
     private String qualification;
