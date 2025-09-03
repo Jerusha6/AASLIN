@@ -7,8 +7,8 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-@Getter
-@Setter
+@SuppressWarnings("unused")
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -24,8 +24,14 @@ public class Application {
     @AllArgsConstructor
     @EqualsAndHashCode
     public static class ApplicationKey implements Serializable {
-        private Long jobPostId;
-        private String jobseekerEmail;
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+		@SuppressWarnings("unused")
+		private Long jobPostId;
+        @SuppressWarnings("unused")
+		private String jobseekerEmail;
     }
 
     @EmbeddedId
