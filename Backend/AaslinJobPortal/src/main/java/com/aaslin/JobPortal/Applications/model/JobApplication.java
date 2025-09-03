@@ -1,6 +1,6 @@
-package com.aaslin.JobPortal.Applications;
+package com.aaslin.JobPortal.Applications.model;
 
-import com.aaslin.JobPortal.JobPosts.JobPost;
+import com.aaslin.JobPortal.JobPosts.model.JobPost;
 import com.aaslin.JobPortal.userProfile.model.JobSeekerProfile;
 import com.aaslin.JobPortal.userProfile.model.UserEducationInfo;
 import com.aaslin.JobPortal.utils.CustomIDGenerator;

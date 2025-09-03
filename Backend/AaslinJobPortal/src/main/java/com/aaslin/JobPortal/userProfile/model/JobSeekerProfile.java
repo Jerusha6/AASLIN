@@ -4,7 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Set;
-import com.aaslin.JobPortal.Applications.JobApplication;
+
+import com.aaslin.JobPortal.Applications.model.JobApplication;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

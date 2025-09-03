@@ -42,4 +42,6 @@ public class RegisterUser {
 
     @OneToOne(mappedBy = "registerUser")
     private UserPersonalInfo userPersonalInfo;
+
+	
 }
