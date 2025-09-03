@@ -1,20 +1,8 @@
 package com.aaslin.JobPortal.model;
 
-<<<<<<< HEAD
-
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-=======
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -24,40 +12,11 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
->>>>>>> a775d3c (entities created)
 @Entity
 @Table(name = "users")
 public class User {
 
     @Id
-<<<<<<< HEAD
-    @Column(length = 100, nullable = false)
-    private String email;
-
-    private String firstName;
-    private String lastName;
-
-    @Enumerated(EnumType.STRING)
-    private Gender gender;
-
-    private LocalDate dob;
-    private String passwordHash;
-    private String phoneNumber;
-    private String city;
-    private String state;
-    private String country;
-    private String pincode;
-
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
-    private Boolean isActive;
-    
-    
-    
-}
-
-
-=======
     @EqualsAndHashCode.Include
     @Column(length = 100, nullable = false)
     private String email;
@@ -72,7 +31,8 @@ public class User {
     @Column(length = 32)
     private Gender gender;
 
-    private LocalDate dob;
+    @SuppressWarnings("unused")
+	private LocalDate dob;
 
     @Column(name = "password_hash", length = 255, nullable = false)
     private String passwordHash;
@@ -101,4 +61,3 @@ public class User {
     @Column(name = "is_active")
     private Boolean isActive;
 }
->>>>>>> a775d3c (entities created)

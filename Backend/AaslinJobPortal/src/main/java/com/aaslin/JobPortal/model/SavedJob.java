@@ -23,8 +23,14 @@ public class SavedJob {
     @AllArgsConstructor
     @EqualsAndHashCode
     public static class SavedJobKey implements Serializable {
-        private Long jobPostId;
-        private String saverEmail;
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+		@SuppressWarnings("unused")
+		private Long jobPostId;
+        @SuppressWarnings("unused")
+		private String saverEmail;
     }
 
     @EmbeddedId
