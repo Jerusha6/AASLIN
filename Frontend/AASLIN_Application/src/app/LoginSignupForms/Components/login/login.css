@@ -57,6 +57,7 @@ label {
     text-align: end;
     margin-top: 10px;
     color: #0e2240;
+    cursor: pointer;
 }
 
 .buttonDiv {
@@ -85,7 +86,12 @@ label {
 .signUp {
     margin-top: 10px;
     text-align: center;
-    color: #0e2240;
+    color: #173768;
+    cursor: pointer;
+}
+
+.signUp:hover{
+    color: #0b1930;
 }
 
 .error {

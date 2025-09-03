@@ -32,7 +32,6 @@ this.signupForm.reset();
 }
 onRegister(){
   const formValues=this.signupForm.value;
-  console.log(formValues);
  this.signupForm.reset();
 }
 }                                                                                           
