@@ -31,7 +31,8 @@ public class User {
     @Column(length = 32)
     private Gender gender;
 
-    private LocalDate dob;
+    @SuppressWarnings("unused")
+	private LocalDate dob;
 
     @Column(name = "password_hash", length = 255, nullable = false)
     private String passwordHash;
