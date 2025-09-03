@@ -1,4 +1,4 @@
-package com.aaslin.JobPortal.model;
+package com.aaslin.JobPortal.userProfile.model;
 
 public enum ScoreType {
     CGPA,
