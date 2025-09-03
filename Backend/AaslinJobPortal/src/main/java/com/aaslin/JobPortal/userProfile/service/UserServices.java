@@ -1,0 +1,38 @@
+package com.aaslin.JobPortal.userProfile.service;
+
+
+import com.aaslin.JobPortal.userProfile.model.JobSeekerProfile;
+import com.aaslin.JobPortal.userProfile.repository.UserRepository;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+public class UserServices implements UserService{
+
+    private final UserRepository userRepository;
+
+    public UserServices(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @Override
+    public JobSeekerProfile getUserById(String email) {
+        return userRepository.findById(email).orElseThrow(() -> new RuntimeException("User Not Found"));
+    }
+
+    @Override
+    public JobSeekerProfile updateUser(String email, JobSeekerProfile user) {
+        JobSeekerProfile existingUser = getUserById(email);
+        return userRepository.save(user);
+    }
+
+    @Override
+    public void deleteUser(String email) {
+        userRepository.deleteById(email);
+    }
+
+    @Override
+    public List<JobSeekerProfile> getAllUsers() {
+        return userRepository.findAll();
+    }
+}
