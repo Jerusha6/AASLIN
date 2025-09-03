@@ -1,1 +1,57 @@
-<p>sign-up works!</p>
+<div class="outerContainer">
+    
+    <div class="innerContainer">
+    <form [formGroup]="signupForm">
+        <h2>Registration</h2>
+  <div class="inputDiv">
+
+  <label>First Name :</label><br>
+  <input  type="text" placeholder="Enter your First Name" formControlName="firstName" autocomplete="off"/><br>
+  <div class="error">
+    @if(signupForm.controls['firstName'].errors?.['required'] && signupForm.controls['firstName'].touched){
+       <span>First name  is Required*</span> 
+    }
+  </div>
+  <label>Last Name :</label><br>
+  <input  type="text" placeholder="Enter your Last Name" formControlName="lastName" autocomplete="off"/><br>
+  <div class="error">
+    @if(signupForm.controls['lastName'].errors?.['required'] && signupForm.controls['lastName'].touched){
+       <span>Last Name  is Required*</span> 
+    }
+  </div>
+  <label>Email:</label><br>
+        <input type="email"  placeholder="Enter your Email" formControlName="email" autocomplete="off"/><br>
+        @if(signupForm.controls['email'].touched){
+        <div class="error">
+            @if(signupForm.controls['email'].errors?.['required']){
+                <span>Email is required*</span>
+            }
+            @if(signupForm.controls['email'].errors?.['pattern']){
+                <span>please enter a valid Email Format*</span>
+            }
+        </div>
+    }
+     <label>Password:</label><br>
+        <input  type="password" placeholder="Enter your password" formControlName="password" autocomplete="off"/><br>
+        <div class="error">
+            @if(signupForm.controls['password'].errors?.['required'] && signupForm.controls['password'].touched){
+                <span>Password is Required*</span>
+            }
+             @if(signupForm.controls['password'].errors?.['minlength'] && signupForm.controls['password'].touched){
+                <span>Password must be atleast 6 characters*</span>
+            }
+        </div>
+          <label>Confirm Password:</label><br>
+          <input type="password"  placeholder="Confirm Password" formControlName="confirmPassword" autocomplete="off"><br>
+            <div *ngIf="signupForm.errors?.['passwordMismatch']  && signupForm.get('password')?.touched && signupForm.get('confirmPassword')?.touched"  class="error">
+             <span>Passwords do not match</span>
+               </div>  
+           </div>
+           <div class="buttonDiv">
+                 <button (click)="onCancel()">cancel</button>
+               <button class="registerBtn" (click)="onRegister()"[disabled]="signupForm.invalid" >Register</button>
+           </div>
+                </form>
+       </div>
+</div>
+
