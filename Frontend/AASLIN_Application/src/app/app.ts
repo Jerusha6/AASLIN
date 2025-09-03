@@ -10,3 +10,5 @@ import { RouterOutlet,RouterLinkActive, RouterLink } from '@angular/router';
 export class App {
   protected readonly title = signal('AASLIN_Application');
 }
+
+
