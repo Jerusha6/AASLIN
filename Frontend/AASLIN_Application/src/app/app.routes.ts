@@ -11,5 +11,6 @@ export const routes: Routes = [
     {path:'UpdateForgotPassword', component:ForgotPasswordUpdate},
     {path:'forgotPassword', component:ForgotPassword},
     {path:'careersPage', component:CareersFirstPage},
-    {path:'register', component:Register},
+    {path:'register', component:Register}
+
 ];
