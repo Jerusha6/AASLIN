@@ -1,8 +1,9 @@
 package com.aaslin.JobPortal.userProfile.service;
 
 import com.aaslin.JobPortal.userProfile.model.RegisterUser;
-import com.aaslin.JobPortal.userProfile.repository.RegisterUserRepository;
+import com.aaslin.JobPortal.userProfile.repository.AuthRepository;
 import com.aaslin.JobPortal.userProfile.repository.PortalAdminsRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -16,18 +17,19 @@ import java.util.Collections;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
-    private final RegisterUserRepository registerUserRepository;
+    @Autowired
+    private final AuthRepository authRepository;
     private final PortalAdminsRepository portalAdminsRepository;
 
-    public CustomUserDetailsService(RegisterUserRepository registerUserRepository,
+    public CustomUserDetailsService(AuthRepository authRepository,
                                     PortalAdminsRepository portalAdminsRepository) {
-        this.registerUserRepository = registerUserRepository;
+        this.authRepository = authRepository;
         this.portalAdminsRepository = portalAdminsRepository;
     }
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        RegisterUser user = registerUserRepository.findByEmail(email)
+        RegisterUser user = authRepository.findById(email)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found: " + email));
 
         String role = portalAdminsRepository.existsByEmail(email) ? "Admin" : "JobSeeker";

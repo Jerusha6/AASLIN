@@ -13,16 +13,17 @@ import java.time.LocalDateTime;
 @Builder
 public class RegisterUser {
 
-    @Id
-    @Column(name="email", nullable = false)
-    private String email;
-    @Column(nullable = false)
+    @Id   
+    @Column(name="email")
+    private String email="jerusha@gmail.com";
+    
+    @Column
     private String firstName;
 
     @Column
     private String lastName;
 
-    @Column(name = "password_hash", length = 255, nullable = false)
+    @Column(name = "password_hash", length = 255)
     private String passwordHash;
 
     @Column(name = "phone_number", length = 20)
@@ -31,7 +32,6 @@ public class RegisterUser {
     @CreationTimestamp
     private LocalDateTime createdAt;
 
-    @Column(name = "is_active")
     private Boolean isActive;
     
     @Builder.Default
