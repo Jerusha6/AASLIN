@@ -3,7 +3,7 @@ import { RouterOutlet,RouterLinkActive, RouterLink } from '@angular/router';
 import { WebPage } from './Website/web-page/web-page';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,],
+  imports: [RouterOutlet, WebPage],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
