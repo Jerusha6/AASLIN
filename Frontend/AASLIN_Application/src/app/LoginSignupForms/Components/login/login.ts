@@ -16,8 +16,8 @@ export class Login {
 signupPage() {
   this.router.navigateByUrl("/signup");
 }
-forgotUpdatePassword() {
-this.router.navigateByUrl("/")
+forgotPassword() {
+this.router.navigateByUrl("/forgotPassword")
 }
 form : FormGroup = new FormGroup({
     username : new FormControl('',[Validators.required]),

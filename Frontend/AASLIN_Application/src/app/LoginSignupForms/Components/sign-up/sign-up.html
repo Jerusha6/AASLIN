@@ -19,6 +19,22 @@
        <span>Last Name  is Required*</span> 
     }
   </div>
+
+<label>Phone Number :</label><br>
+  <input  type="number" placeholder="Enter your Phone Number" formControlName="phoneNumber" autocomplete="off"/><br>
+  <div class="error">
+    @if(signupForm.controls['phoneNumber'].errors?.['required'] && signupForm.controls['phoneNumber'].touched){
+       <span>Phone Number is Required*</span> 
+    }
+     @if(signupForm.controls['phoneNumber'].errors?.['min'] || signupForm.controls['phoneNumber'].errors?.['max']){
+       <span>Enter Valid Phone Number*</span> 
+    }
+  </div>
+
+
+
+
+
   <label>Email:</label><br>
         <input type="email"  placeholder="Enter your Email" formControlName="email" autocomplete="off"/><br>
         @if(signupForm.controls['email'].touched){
@@ -48,7 +64,7 @@
                </div>  
            </div>
            <div class="buttonDiv">
-                 <button (click)="onCancel()">cancel</button>
+                 <button (click)="onCancel()">Cancel</button>
                <button class="registerBtn" (click)="onRegister()"[disabled]="signupForm.invalid" >Register</button>
            </div>
                 </form>

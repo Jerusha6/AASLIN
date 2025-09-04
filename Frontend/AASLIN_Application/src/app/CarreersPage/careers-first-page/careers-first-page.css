@@ -1,0 +1,56 @@
+.careerImage{
+
+    width:30%;
+    height:auto;
+    border-radius:20px;
+    display:flex;
+    justify-content: end;
+}
+.example-card {
+  max-width: 400px;
+  max-height:400px;
+ 
+}
+.rolecards{
+    display:flex;
+    justify-content: space-evenly;
+    margin-top:50px;
+    flex-wrap: wrap;
+    gap:25px;
+}
+
+.head{
+    width: 100%;
+    display: flex;
+    margin: 20px;
+    justify-content: space-around;
+}
+
+.merged{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.searchTitle{
+    display: flex;
+    column-gap: 20px;
+}
+.searchTitle input {
+    border-radius:5px;
+    outline:none;
+}
+.searchTitle button{
+    background-color:#be2240;
+    border-radius:5px;
+    color:white;
+    outline:none;
+    border:none; 
+}
+.example-button-row {
+  max-width: 600px;
+}
+.example-card img{
+    width:384;
+    height:240;
+}
