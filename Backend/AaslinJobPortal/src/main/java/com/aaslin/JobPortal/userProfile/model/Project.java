@@ -1,5 +1,6 @@
 package com.aaslin.JobPortal.userProfile.model;
 
+import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Embeddable
 public class Project {
     private String projectName;
     private String projectDescription;

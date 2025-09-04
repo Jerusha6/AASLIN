@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.util.Set;
 
+import com.aaslin.JobPortal.Applications.model.JobApplication;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,7 +21,7 @@ public class JobSeekerProfile {
 
     private String bio;
     private String currentOrganization;
-    private boolean workingStatus; //checkbox states currently working here or not
+    private boolean workingStatus;
     private Integer yearsOfExperience;
 
     @ElementCollection
@@ -28,8 +29,8 @@ public class JobSeekerProfile {
     @Column(name = "language")
     private Set<String> languages;
 
-    private Double currentCTC; // if they want to mention
-    private Double expectedSalary; //placeholder should be there in form saying (in LPA)
+    private Double currentCTC;
+    private Double expectedSalary;
 
     @Lob
     private byte[] resume;
@@ -39,9 +40,13 @@ public class JobSeekerProfile {
     @CollectionTable(name = "jobseeker_projects", joinColumns = @JoinColumn(name = "email"))
     private Set<Project> project;
 
-    @Transient
+    @ElementCollection
+    @CollectionTable(name = "jobseeker_internship", joinColumns = @JoinColumn(name = "email"))
     private Set<Internship> internships;
 
+    @OneToOne(mappedBy = "jobSeekerProfile")
+    private UserPersonalInfo userPersonalInfo;
+    
     @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(
         name = "jobseeker_education",
@@ -49,4 +54,10 @@ public class JobSeekerProfile {
         inverseJoinColumns = @JoinColumn(name = "education_email")
     )
     private Set<UserEducationInfo> userEducationInfo;
+
+    @OneToMany(mappedBy = "jobseekerProfile")
+    private Set<JobApplication> applications;
+
+    @OneToMany(mappedBy = "jobseekerProfile")
+    private Set<SavedJob> savedJobs;
 }

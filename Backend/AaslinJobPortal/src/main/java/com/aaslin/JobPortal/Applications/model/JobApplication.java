@@ -1,13 +1,11 @@
-package com.aaslin.JobPortal.Applications;
+package com.aaslin.JobPortal.Applications.model;
 
-
-import com.aaslin.JobPortal.JobPosts.JobPost;
+import com.aaslin.JobPortal.JobPosts.model.JobPost;
 import com.aaslin.JobPortal.userProfile.model.JobSeekerProfile;
 import com.aaslin.JobPortal.userProfile.model.UserEducationInfo;
 import com.aaslin.JobPortal.utils.CustomIDGenerator;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
 
@@ -17,15 +15,17 @@ import java.time.LocalDateTime;
 @Entity
 public class JobApplication {
 
-    @Autowired
-    CustomIDGenerator generator;
+    @Transient
+    private CustomIDGenerator generator;
 
     @Id
+    @Column(name = "application_id", length = 50)
     private String applicationId;
+
     @PrePersist
     public void generateId() {
-        if (applicationId == null) {
-            applicationId = generator.generateCustomId("APPID");  //change later
+        if (applicationId == null && generator != null) {
+            applicationId = generator.generateCustomId("APPID");
         }
     }
 
@@ -41,15 +41,17 @@ public class JobApplication {
     @Lob
     private byte[] resume;
 
+    @ManyToOne
+    @JoinColumn(name = "education_id")
     private UserEducationInfo educationalDetails;
 
     private LocalDateTime appliedAt = LocalDateTime.now();
 
     @ManyToOne
-    @JoinColumn(name = "job_post_id")
+    @JoinColumn(name = "job_post_id", nullable = false)
     private JobPost jobPost;
 
     @ManyToOne
-    @JoinColumn(name = "jobseeker_email")
+    @JoinColumn(name = "jobseeker_email", nullable = false)
     private JobSeekerProfile jobseekerProfile;
 }

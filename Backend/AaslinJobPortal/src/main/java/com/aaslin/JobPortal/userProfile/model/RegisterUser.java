@@ -34,8 +34,14 @@ public class RegisterUser {
     @Column(name = "is_active")
     private Boolean isActive;
 
-    @OneToOne(mappedBy = "registerUser", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "registerUser")
     private UserEducationInfo userEducationInfo;
 
+    @OneToOne(mappedBy = "registerUser")
+    private JobSeekerProfile jobSeekerProfile;
 
+    @OneToOne(mappedBy = "registerUser")
+    private UserPersonalInfo userPersonalInfo;
+
+	
 }
