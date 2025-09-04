@@ -12,6 +12,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.aaslin.JobPortal.security.JwtAuthenticationFilter;
+import com.aaslin.JobPortal.userProfile.service.CustomUserDetailsService;
+
 import lombok.RequiredArgsConstructor;
 
 @Configuration
@@ -19,7 +22,7 @@ import lombok.RequiredArgsConstructor;
 public class SecurityConfig {
 
 	private final JwtAuthenticationFilter jwtAuthFilter;
-	//private final CustomerDetailsService customerDetailsService;
+	private final CustomUserDetailsService customUserDetailsService;
 	
 	@Bean
 	private SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
@@ -48,7 +51,7 @@ public class SecurityConfig {
 	
 	@Bean
 	
-	public AuthenticationManager authenticationManager(AuthenticationConfiguration config) {
+	public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
 		return config.getAuthenticationManager();
 		
 	}
