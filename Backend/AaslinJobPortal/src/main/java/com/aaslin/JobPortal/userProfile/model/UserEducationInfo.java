@@ -15,8 +15,8 @@ import java.time.LocalDateTime;
 public class UserEducationInfo {
 
     @Id
-    @Column(name="email", nullable = false)
-    private String email;
+    @Column(name = "education_id", length = 50)
+    private String id;
 
     private String qualification;
 
@@ -42,5 +42,4 @@ public class UserEducationInfo {
     @MapsId
     @JoinColumn(name = "email")
     private RegisterUser registerUser;
-
 }
