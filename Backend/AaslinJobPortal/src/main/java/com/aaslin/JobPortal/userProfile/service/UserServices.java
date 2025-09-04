@@ -7,6 +7,7 @@ import com.aaslin.JobPortal.userProfile.repository.UserRepository;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
 public class UserServices implements UserService{
 
     private final UserRepository userRepository;
