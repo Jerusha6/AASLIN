@@ -3,11 +3,62 @@
   <div class="property1">
     <a mat-button href="#card" target="text-decoration:none">Home</a>
     <a mat-button href="#aboutus" target="text-decoration:none">About Us</a>
-    <a mat-button routerLink="/Services" routerLinkActive="active-link">Services</a>
-    <a mat-button routerLink="/Team" routerLinkActive="active-link">Team</a>
-    <a mat-button routerLink="/Careers" routerLinkActive="active-link">Careers</a>
-    <a mat-button routerLink="/WhyUs" routerLinkActive="active-link">Why Us</a>
-    <a mat-button routerLink="/Contacts" routerLinkActive="active-link">Contacts</a>
+    <a mat-button href="#service" target="text-decoration:none">Services</a>
+    <a mat-button href="#team" target="text-decoration:none">Team</a>
+    <a mat-button href="#careers" target="text-decoration:none">Careers</a>
+    <a mat-button href="#WhyUs" target="text-decoration:none">Why Us</a>
+    <a mat-button href="#contacts" target="text-decoration:none">Contacts</a>
     <a mat-raised-button routerLink="/Register" routerLinkActive="active-link">Register</a>
   </div>
 </mat-toolbar>
+
+<div id="aboutus" class="property2">
+    <h1 style="color:#b82228">About Us</h1><br>
+    <p>{{AboutUs}}</p>
+</div>
+
+<div id="service" class="property2">
+  <h1 style="color:#b82228">Services we provide</h1><br>
+<div class="carousel-container">
+  <button mat-icon-button (click)="prevSlide()" class="nav-button">
+    <mat-icon>chevron_left</mat-icon>
+  </button>
+
+  <div class="cards-wrapper">
+    <div class="cards" [style.transform]="'translateX(' + currentPosition + 'px)'">
+    <mat-card class="card" appearance="outlined">
+    <img class="ig"  mat-card-md-image src="https://media.geeksforgeeks.org/img-practice/prod/courses/227/Web/Other/Course_Backend_png_1720846964.png"  alt="Backend development">
+    <mat-card-header>
+      <mat-card-title>Backend Development</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      {{backend}}
+    </mat-card-content>
+    </mat-card>
+
+  <mat-card class="card" appearance="outlined">
+    <img class="ig"  mat-card-md-image src="https://media.geeksforgeeks.org/img-practice/prod/courses/227/Web/Other/Course_Backend_png_1720846964.png"  alt="Backend development">
+    <mat-card-header>
+      <mat-card-title>Frontend Development</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      {{frontend}}
+    </mat-card-content>
+  </mat-card>
+
+<mat-card class="card" appearance="outlined">
+  <img class="ig"  mat-card-md-image src="https://media.geeksforgeeks.org/img-practice/prod/courses/227/Web/Other/Course_Backend_png_1720846964.png"  alt="Backend development">
+  <mat-card-header>
+    <mat-card-title>FullStack Development</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    {{backend}}
+  </mat-card-content>
+</mat-card>
+</div>
+</div>
+  <button mat-icon-button (click)="nextSlide()" class="nav-button">
+    <mat-icon>chevron_right</mat-icon>
+  </button>
+</div>
+</div>

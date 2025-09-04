@@ -1,5 +1,10 @@
 mat-toolbar{
     background-color:#ffffff;
+    z-index:1000;
+    position: fixed;
+}
+mat-toolbar span{
+  margin-left:20px;
 }
 .property1{  
   margin-left:auto;
@@ -7,9 +12,72 @@ mat-toolbar{
 .property1 a{
   padding: 5px 16px;
   font-size: 12px;
-  
 }
 a[mat-raised-button]{
     background-color:#b82228;
     color:#ffffff;
+   }
+
+button[mat-raised-button]{
+  background-color:#b82228;
+  color:#ffffff;
+}
+#aboutus{
+  padding-top:100px;
+}
+
+.property2{
+    background-color: #ffffff;
+    text-align:center;
+    padding:80px 0;
+    max-width: 1200px;
+    margin:0 auto;
+    height:auto;
+    border-bottom: 1px solid #bdbcbc;
+}
+.property2 p{
+  font-size: larger;
+  margin:0 auto;
+  width: 900px;
+}
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+  text-align:left;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.cards-wrapper {
+  overflow: hidden;
+  width: 960px;
+}
+
+.cards {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.card{
+  width: 300px;
+  height:350px;
+  margin: 0 10px;
+} 
+
+.nav-button {
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.ig{
+  width:auto;
+  height:min-content;
+  border-radius:8px;
+}
+
+.title{
+  text-align:center;
 }
