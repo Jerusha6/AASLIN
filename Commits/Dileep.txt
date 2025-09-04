@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 03 sep 
 
 1.
@@ -9,3 +10,16 @@ Created Login Page and Update Password (In progress)
 2.
 Created Update Password
 465c087ca7d5b1909dc24cbf1c2d32f54b86359f
+=======
+03 sep 
+
+1.
+Created Login Page and Update Password (In progress)
+6e7c79db7c7360592fc9a305f32d133ff470fe53
+
+04 sep
+
+2.
+Created Update Password
+465c087ca7d5b1909dc24cbf1c2d32f54b86359f
+>>>>>>> 76a57b4077b92597943273908483c4ac41836553

@@ -6,6 +6,10 @@ import lombok.*;
 import java.util.Set;
 
 import com.aaslin.JobPortal.Applications.model.JobApplication;
+<<<<<<< HEAD
+=======
+import com.aaslin.JobPortal.savedJob.model.SavedJob;
+>>>>>>> 76a57b4077b92597943273908483c4ac41836553
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
