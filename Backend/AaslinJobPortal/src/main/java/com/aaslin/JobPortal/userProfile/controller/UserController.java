@@ -7,7 +7,7 @@ import com.aaslin.JobPortal.userProfile.service.UserService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/careers/users")
+@RequestMapping("/careers/jobseeker")
 @CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 

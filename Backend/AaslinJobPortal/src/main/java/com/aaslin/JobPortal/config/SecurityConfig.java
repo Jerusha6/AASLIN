@@ -7,6 +7,7 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -25,15 +26,20 @@ public class SecurityConfig {
 	private final CustomUserDetailsService customUserDetailsService;
 	
 	@Bean
-	private SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-		http.csrf(csrf->csrf.disable())
-		.authorizeHttpRequests(auth->auth.requestMatchers("/careers/register","/careers/login",
-				"/careers/logout","/forgot-password","/reset-password","/profile")
-				.permitAll().requestMatchers("/careers/admin/**").hasAuthority("ADMIN")
-				.requestMatchers("/careers/jobseeker/**").hasAnyAuthority("JobSeeker").anyRequest().authenticated())
-		.authenticationProvider(authenticationProvider()).addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
-		return http.build();
-	} 
+	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+	    http.csrf(csrf -> csrf.disable())
+	        .authorizeHttpRequests(auth -> auth
+	           
+	            .requestMatchers("/careers/admin/**").hasAuthority("ADMIN")
+	            .requestMatchers("/careers/jobseeker/**").hasAuthority("JobSeeker")
+	            .anyRequest().permitAll()
+	        )
+	        .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+	        .authenticationProvider(authenticationProvider())
+	        .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+
+	    return http.build();
+	}
 	
 	@Bean
 	public AuthenticationProvider authenticationProvider() {
