@@ -1,7 +1,6 @@
 package com.aaslin.JobPortal.userProfile.model;
 
 import com.aaslin.JobPortal.JobPosts.model.JobPost;
-import com.aaslin.JobPortal.userProfile.model.JobSeekerProfile;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.UpdateTimestamp;
