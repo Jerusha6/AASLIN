@@ -29,4 +29,10 @@ public class AuthService {
     public void verifyEmail(@RequestParam String receiptEmail){
         mailService.sendSimpleEmail(receiptEmail);
     }
+
+	public boolean checkCredentials(String email, String password) {
+		RegisterUser user = authRepo.findById(email) .orElseThrow(()-> new RuntimeException("User not registered"));
+		return passwordEncoder.matches(password, user.getPasswordHash());
+		
+	}
 }

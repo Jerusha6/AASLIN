@@ -22,14 +22,15 @@ public class AuthController {
     }
     
 
-    @GetMapping("/send-email-otp")
+    @PostMapping("/send-email-otp")
     public void verifyEmail(@RequestParam String receiptEmail){
         service.verifyEmail(receiptEmail);
     }
 
     @PostMapping("/login")
-    public void validateUser(){
-
+    public ResponseEntity<Boolean> validateUser(@RequestParam String email, @RequestParam String password){
+    	boolean isValid = service.checkCredentials(email, password);
+		return ResponseEntity.ok(isValid);
     }
 
     @PostMapping("/logout")
