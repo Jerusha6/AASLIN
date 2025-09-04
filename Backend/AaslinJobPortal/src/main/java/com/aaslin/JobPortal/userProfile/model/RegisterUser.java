@@ -14,19 +14,14 @@ import java.time.LocalDateTime;
 public class RegisterUser {
 
     @Id   
-    @Column(name="email")
-    private String email="jerusha@gmail.com";
-    
-    @Column
+    private String email;
+      
     private String firstName;
 
-    @Column
     private String lastName;
-
-    @Column(name = "password_hash", length = 255)
+   
     private String passwordHash;
-
-    @Column(name = "phone_number", length = 20)
+   
     private String phoneNumber;
 
     @CreationTimestamp
