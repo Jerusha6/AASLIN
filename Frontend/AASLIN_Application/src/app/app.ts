@@ -4,7 +4,6 @@ import { WebPage } from './Website/web-page/web-page';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet,WebPage],
-  imports: [RouterOutlet, WebPage],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
