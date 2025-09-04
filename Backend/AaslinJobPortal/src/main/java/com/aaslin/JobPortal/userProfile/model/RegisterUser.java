@@ -16,7 +16,6 @@ public class RegisterUser {
     @Id
     @Column(name="email", nullable = false)
     private String email;
-
     @Column(nullable = false)
     private String firstName;
 

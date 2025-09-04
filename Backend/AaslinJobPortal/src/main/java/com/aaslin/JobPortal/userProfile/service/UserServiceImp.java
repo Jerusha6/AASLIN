@@ -1,18 +1,15 @@
 package com.aaslin.JobPortal.userProfile.service;
 
-import com.aaslin.JobPortal.userProfile.model.JobSeekerProfile;
-import com.aaslin.JobPortal.userProfile.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-import java.util.List;
-
+import com.aaslin.JobPortal.userProfile.model.JobSeekerProfile;
+import com.aaslin.JobPortal.userProfile.repository.UserRepository;
 @Service
-public class UserServices implements UserService{
+public class UserServiceImp implements UserService{
 
     private final UserRepository userRepository;
 
-    public UserServices(UserRepository userRepository) {
+    public UserServiceImp(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -30,10 +27,5 @@ public class UserServices implements UserService{
     @Override
     public void deleteUser(String email) {
         userRepository.deleteById(email);
-    }
-
-    @Override
-    public List<JobSeekerProfile> getAllUsers() {
-        return userRepository.findAll();
     }
 }
