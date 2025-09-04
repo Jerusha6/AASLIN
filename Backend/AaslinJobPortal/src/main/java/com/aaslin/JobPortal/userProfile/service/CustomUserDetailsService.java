@@ -1,14 +1,8 @@
 package com.aaslin.JobPortal.userProfile.service;
 
-<<<<<<< HEAD
-import com.aaslin.JobPortal.userProfile.model.RegisterUser;
-import com.aaslin.JobPortal.userProfile.repository.AuthRepository;
-import com.aaslin.JobPortal.userProfile.repository.PortalAdminsRepository;
-=======
 import com.aaslin.JobPortal.admin.repository.PortalAdminsRepository;
 import com.aaslin.JobPortal.userProfile.model.RegisterUser;
 import com.aaslin.JobPortal.userProfile.repository.AuthRepository;
->>>>>>> 76a57b4077b92597943273908483c4ac41836553
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

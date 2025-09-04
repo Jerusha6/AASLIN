@@ -22,7 +22,7 @@ public class AuthController {
     }
     
 
-    @PostMapping("/send-email-otp")
+    @GetMapping("/send-email-otp")
     public void verifyEmail(@RequestParam String receiptEmail){
         service.verifyEmail(receiptEmail);
     }
