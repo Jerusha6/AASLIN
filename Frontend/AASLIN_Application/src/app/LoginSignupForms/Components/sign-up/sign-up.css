@@ -53,10 +53,13 @@ button{
     padding:10px 12px;
     color:white;
     width:100%;
-    background-color:red;
+    background-color:#b82228;
     border:none;
     border-radius:5px;
     padding:10px;
+}
+button:hover{
+  background-color:#86171b;
 }
 
 .buttonDiv{
@@ -71,4 +74,14 @@ button[disabled] {
 }
 .inputDiv{
     width:90%;
+}
+label{
+  color:#0e2240;
+}
+.registerBtn{
+  background-color: #13376e;
+  color:white;
+}
+.registerBtn:hover{
+  background-color:#0e2240;
 }
