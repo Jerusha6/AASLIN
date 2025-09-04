@@ -12,6 +12,7 @@ export class SignUp {
 signupForm:FormGroup=new FormGroup({
      firstName:new FormControl('',[Validators.required]),
      lastName:new FormControl('',[Validators.required]),
+     phoneNumber: new FormControl( null,[Validators.required,Validators.min(6000000000),Validators.max(9999999999)]),
      email:new FormControl('',[Validators.required,Validators.pattern("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")]),
      password:new FormControl('',[Validators.required,Validators.minLength(6)]),
      confirmPassword:new FormControl('',[Validators.required]),

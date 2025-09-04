@@ -1,0 +1,15 @@
+.careerImage{
+    width:25%;
+    height:25%;
+    border-radius:100%;
+    display:flex;
+    float:right;
+}
+.example-card {
+  max-width: 200px;
+  max-height:200px;
+}
+.rolecards{
+    display:flex;
+}
+
