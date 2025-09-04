@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 public class RegisterUser {
 
     @Id
@@ -33,6 +34,9 @@ public class RegisterUser {
 
     @Column(name = "is_active")
     private Boolean isActive;
+    
+    @Builder.Default
+    private String role="JOBSEEKER"; //Defaultly assigning jobseeker as role to a new user.
 
     @OneToOne(mappedBy = "registerUser")
     private UserEducationInfo userEducationInfo;
