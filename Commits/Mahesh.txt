@@ -1,0 +1,9 @@
+03 sep
+
+1.Modifications in figma
+2.Created SignUp form
+commit ID 50a70852240e06fd931349dcca37572b9bf4fb52
+
+04 sep
+3.created Forgot Password
+commit ID ce451b75eb2ead0f879bcec49e24d2983f5a7853

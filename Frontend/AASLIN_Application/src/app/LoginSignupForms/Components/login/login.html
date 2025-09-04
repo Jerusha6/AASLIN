@@ -1,0 +1,23 @@
+<div class="container">
+    <form id="form" [formGroup]="form" >
+        <h1>  Login </h1>
+        <div class="input-Div">
+            <label class="label-class" for="username">Username</label>
+            <input class="input-class" name="username" type="text" placeholder="Enter your email" formControlName="username">
+            <span class='error' *ngIf="form.controls['username'].errors?.['required'] && form.controls['username'].touched">Username is required</span>
+           
+            <label class="label-class" for="password">Password</label>
+            <input class="input-class" type="password" placeholder="Enter your password" formControlName="password">
+            <span class='error' *ngIf="form.controls['password'].errors?.['required'] && form.controls['password'].touched">Password is required</span>
+            <span class='error' *ngIf="form.controls['password'].errors?.['minlength']">Minimum 6 characters </span>
+            <p class="forgot" (click)="forgotPassword()">Forgot Password?</p>
+            <div class="buttonDiv">
+                <button id="loginButton" type="submit">Login</button>
+            </div>
+            <p class="signUp" (click)="signupPage()">Sign Up</p>
+        </div>
+    </form>
+</div>
+
+
+
