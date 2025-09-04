@@ -1,14 +1,13 @@
 package com.aaslin.JobPortal.userProfile.service;
 
-
 import com.aaslin.JobPortal.userProfile.model.JobSeekerProfile;
 import com.aaslin.JobPortal.userProfile.repository.UserRepository;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
-
-public class UserServices implements UserService{
+@Service
+public class UserServiceImp implements UserService{
 
     private final UserRepository userRepository;
 

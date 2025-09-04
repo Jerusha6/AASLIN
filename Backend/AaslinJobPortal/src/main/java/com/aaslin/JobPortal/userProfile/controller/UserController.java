@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/careers/users")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
     private final UserService userService;
@@ -16,18 +17,18 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/{id}")
-    public JobSeekerProfile getUserById(@PathVariable String email) {
+    @GetMapping("/id")
+    public JobSeekerProfile getUserById(@RequestParam String email) {
         return userService.getUserById(email);
     }
 
-    @PutMapping("{/id}")
-    public JobSeekerProfile updateUser(@PathVariable String email, @PathVariable JobSeekerProfile jobSeekerProfile) {
+    @PutMapping("/id")
+    public JobSeekerProfile updateUser(@RequestParam String email, @ModelAttribute JobSeekerProfile jobSeekerProfile) {
         return userService.updateUser(email, jobSeekerProfile);
     }
 
-    @DeleteMapping("/{id}")
-    public String deleteUser(@PathVariable String email) {
+    @DeleteMapping("/id")
+    public String deleteUser(@RequestParam String email) {
         userService.deleteUser(email);
         return "User Deleted Successfully!";
     }
