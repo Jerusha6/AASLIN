@@ -10,7 +10,7 @@
             <input class="input-class" type="password" placeholder="Enter your password" formControlName="password">
             <span class='error' *ngIf="form.controls['password'].errors?.['required'] && form.controls['password'].touched">Password is required</span>
             <span class='error' *ngIf="form.controls['password'].errors?.['minlength']">Minimum 6 characters </span>
-            <p class="forgot" (click)="forgotUpdatePassword()">Forgot Password?</p>
+            <p class="forgot" (click)="forgotPassword()">Forgot Password?</p>
             <div class="buttonDiv">
                 <button id="loginButton" type="submit">Login</button>
             </div>
