@@ -1,7 +1,10 @@
 package com.aaslin.JobPortal.utils;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Random;
 
+@Component
 public class OTPGenerator {
     public String generateOTP(){
         int size = 6;

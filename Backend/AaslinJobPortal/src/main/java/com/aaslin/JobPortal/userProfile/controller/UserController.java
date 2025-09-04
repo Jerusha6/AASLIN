@@ -17,24 +17,19 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping
     public JobSeekerProfile getUserById(@RequestParam String email) {
         return userService.getUserById(email);
     }
 
-    @PutMapping("{/id}")
+    @PutMapping
     public JobSeekerProfile updateUser(@RequestParam String email, @ModelAttribute JobSeekerProfile jobSeekerProfile) {
         return userService.updateUser(email, jobSeekerProfile);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping
     public String deleteUser(@RequestParam String email) {
         userService.deleteUser(email);
         return "User Deleted Successfully!";
-    }
-
-    @GetMapping()
-    public List<JobSeekerProfile> getAllUsers() {
-        return userService.getAllUsers();
     }
 }

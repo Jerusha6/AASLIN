@@ -14,12 +14,7 @@ public class RegisterUserController {
     @Autowired
     private RegisterUserRepository repository;
 
-    @PostMapping
-    public String registerUser(@RequestBody RegisterUser user) {
-        if (repository.existsByEmail(user.getEmail())) {
-            return "Email already exists!";
-        }
-        repository.save(user);
-        return "User registered successfully!";
-    }
+//    @PostMapping
+//    public String registerUser(@RequestBody RegisterUser user) {
+//    }
 }

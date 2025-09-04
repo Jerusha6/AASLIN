@@ -4,8 +4,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CustomIDGenerator {
-    public String generateCustomId(String prefix){
-        String id = "";
-        return id;
+    static int count = 1000;
+    public static String generateCustomId(String prefix) {
+        return prefix + String.format("%05d", count++);
     }
 }
