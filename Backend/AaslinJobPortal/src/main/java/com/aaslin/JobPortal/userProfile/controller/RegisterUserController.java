@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/register")
+@RequestMapping("/careers/register")
 @CrossOrigin(origins = "http://localhost:4200") 
 public class RegisterUserController {
 
@@ -21,6 +21,5 @@ public class RegisterUserController {
         }
         repository.save(user);
         return "User registered successfully!";
-    	
     }
 }
