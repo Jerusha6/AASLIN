@@ -1,7 +1,7 @@
 package com.aaslin.JobPortal.JobPosts.model;
 
 import com.aaslin.JobPortal.Applications.model.JobApplication;
-import com.aaslin.JobPortal.userProfile.model.SavedJob;
+import com.aaslin.JobPortal.savedJob.model.SavedJob;
 import com.aaslin.JobPortal.utils.CustomIDGenerator;
 import jakarta.persistence.*;
 import lombok.*;

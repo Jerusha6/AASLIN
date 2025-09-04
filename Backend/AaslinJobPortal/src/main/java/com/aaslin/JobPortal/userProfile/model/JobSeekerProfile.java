@@ -6,6 +6,7 @@ import lombok.*;
 import java.util.Set;
 
 import com.aaslin.JobPortal.Applications.model.JobApplication;
+import com.aaslin.JobPortal.savedJob.model.SavedJob;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
