@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.aaslin.JobPortal.userProfile.model.JobSeekerProfile;
 import com.aaslin.JobPortal.userProfile.repository.UserRepository;
+
 @Service
 public class UserServiceImp implements UserService{
 
@@ -19,9 +20,8 @@ public class UserServiceImp implements UserService{
     }
 
     @Override
-    public JobSeekerProfile updateUser(String email, JobSeekerProfile user) {
-        JobSeekerProfile existingUser = getUserById(email);
-        return userRepository.save(user);
+    public JobSeekerProfile updateUser(String email, JobSeekerProfile jobSeekerProfile) {
+        return userRepository.save(jobSeekerProfile);
     }
 
     @Override
