@@ -1,9 +1,15 @@
 package com.aaslin.JobPortal.userProfile.controller;
 
+import com.aaslin.JobPortal.security.JwtService;
+import com.aaslin.JobPortal.userProfile.model.AuthResponse;
 import com.aaslin.JobPortal.userProfile.model.RegisterUser;
 import com.aaslin.JobPortal.userProfile.service.AuthService;
+import com.aaslin.JobPortal.userProfile.service.CustomUserDetailsService;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,6 +21,13 @@ public class AuthController {
 
     @Autowired
     private AuthService service;
+
+    @Autowired
+    private CustomUserDetailsService userDetailsService;
+
+    @Autowired
+    private JwtService jwtService;
+
 
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody RegisterUser request) {
@@ -33,27 +46,26 @@ public class AuthController {
     	return ResponseEntity.ok(service.verifyOtp(email, otp));
     }
 
-    @GetMapping("/login")
-    public ResponseEntity<String> validateUser(@RequestParam String email, @RequestParam String password){
-    	boolean isUserExist = service.checkUser(email);
-    	boolean isValid = service.checkCredentials(email, password);
-    	if(isUserExist) {
-    		if(isValid) {
-        		return ResponseEntity.ok("Login successful");
-        	}
-        	else {
-        		return ResponseEntity.ok("Login failed");
-        	}
-    	}
-    	else {
-    		return  ResponseEntity.ok("User not found");
-    	}   			
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestParam String email, @RequestParam String password) {
+        boolean valid = service.checkCredentials(email, password);
+
+        if (!valid) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid email or password");
+        }
+
+        // Load UserDetails for JWT generation
+        UserDetails userDetails = userDetailsService.loadUserByUsername(email);
+        String jwtToken = jwtService.generateToken(userDetails);
+
+        return ResponseEntity.ok(new AuthResponse(jwtToken));
     }
 
+
     @PostMapping("/logout")
-    public void endSession(){
-    	
-    }
+    public ResponseEntity<String> endSession(){
+    	return ResponseEntity.ok("Logged out successfully");
+    	}
 
     @PostMapping("/forgot-password")
     public void forgotPasswordRedirect(){

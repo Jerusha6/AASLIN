@@ -32,7 +32,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         RegisterUser user = authRepository.findById(email)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found: " + email));
 
-        String role = portalAdminsRepository.existsByEmail(email) ? "Admin" : "JobSeeker";
+        String role = portalAdminsRepository.existsByEmail(email) ? "ROLE_ADMIN" : "ROLE_JOBSEEKER";
 
         GrantedAuthority authority = new SimpleGrantedAuthority(role);
         return new User(user.getEmail(), user.getPasswordHash(), Collections.singletonList(authority));

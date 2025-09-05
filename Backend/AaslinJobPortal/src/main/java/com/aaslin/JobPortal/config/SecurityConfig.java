@@ -30,8 +30,8 @@ public class SecurityConfig {
 	    http.csrf(csrf -> csrf.disable())
 	        .authorizeHttpRequests(auth -> auth
 	           
-	            .requestMatchers("/careers/admin/**").hasAuthority("ADMIN")
-	            .requestMatchers("/careers/jobseeker/**").hasAuthority("JobSeeker")
+	            .requestMatchers("/careers/admin/**").hasRole("ADMIN")
+	            .requestMatchers("/careers/jobseeker/**").hasRole("JobSeeker")
 	            .anyRequest().permitAll()
 	        )
 	        .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
