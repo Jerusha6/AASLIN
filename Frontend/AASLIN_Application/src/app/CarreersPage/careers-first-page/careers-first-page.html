@@ -1,72 +1,144 @@
 <div class="main">
-    
+
     <form >
         <div class="head">
-        <h2>Aaslin Careers</h2>
-        <p>Find Your Next Job at Aaslin.</p>
-        <div class="searchTitle">
-        <input type="text" placeholder="   Software Engineer">
-        <button>Search</button>
-    </div>
+            <div class="merged">
+                <div> 
+                    <h2>Aaslin Careers</h2>
+                    <p>Find Your Next Job at Aaslin.</p>
+                </div>
+            <div class="searchTitle">
+                <input type="text" placeholder="   Software Engineer">
+                 <div class="example-button-row">
+                <button matButton="filled">Search</button>
+            </div>
+            </div>
+        </div>
         <img src="/CareerImage.png"  alt="success Image" class="careerImage"/>
     </div>
     </form>
   <div class="rolecards">
+    <div class="card">
     <mat-card class="example-card" appearance="outlined">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-  </mat-card-header>
-  <img mat-card-image src="" alt="Photo of a Shiba Inu">
+  <img mat-card-image src="/softwareEngineerImage.png" alt="Software Engineer Image">
   <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-    </p>
+    <h4> Software Engineer</h4>
+    <P>Develop the products and tools for billions of users,apply engineering principles and knowledge of programming languages to build software solutions for end users.
+ </P>
   </mat-card-content>
-  <mat-card-actions>
-
-  </mat-card-actions>
 </mat-card>
+</div>
+<div class="card">
 <mat-card class="example-card" appearance="outlined">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-  </mat-card-header>
-  <img mat-card-image src="" alt="Photo of a Shiba Inu">
+  <img mat-card-image src="/QaImage.png" alt="Quality Assurance Image">
   <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-    </p>
+    <h4>Quality Assurance </h4>
+    <p>Quality assurance focuses on proactive planning and process improvement to prevent risks that could affect product or service quality</p>
   </mat-card-content>
-  <mat-card-actions>
-
-  </mat-card-actions>
 </mat-card>
+</div>
+<div class="card">
 <mat-card class="example-card" appearance="outlined">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-  </mat-card-header>
-  <img mat-card-image src="" alt="Photo of a Shiba Inu">
+  <img mat-card-image src="/servicedesk.png" alt="Service Engineer">
   <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-    </p>
+    <h4> Service Engineer</h4>
+    <p>A Service Engineer is an individual who plays a key role in learning about relevant security approaches and cloud security architecture, especially in the context of cloud implementation and evaluation</p>
   </mat-card-content>
-  <mat-card-actions>
-
-  </mat-card-actions>
 </mat-card>
+</div>
+<div class="card">
 <mat-card class="example-card" appearance="outlined">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-  </mat-card-header>
-  <img mat-card-image src="" alt="Photo of a Shiba Inu">
+  <img mat-card-image src="/hrImage.png" alt="Hiring Resource Image">
   <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-    </p>
+    <h4> Human resources</h4>
+    <p>A hiring manager is an employee who oversees the hiring process for a position, collaborates with the human resources department and chooses candidates that will be the best fit for the position and the organization.</p>
   </mat-card-content>
-  <mat-card-actions>
-
-  </mat-card-actions>
 </mat-card>
 </div>
 </div>
+
+
+<div class="footer">
+  <div class="footHead">
+            <h2>Get In Touch</h2>
+    </div>
+    <div class="footMerge">
+  <form [formGroup]="footerForm">
+    <div class="contactForm">
+      <h3>Contact Form</h3>
+    <label>Name:</label>
+    <input type="text" formControlName="name"/>
+    <div class="error">
+      @if(footerForm.controls['name'].errors?.['required'] && footerForm.controls['name'].touched){
+          <span>Name is required*</span>
+      }
+    </div>
+
+     <label>Email:</label>
+    <input type="email" formControlName="email"/><br>
+       @if(footerForm.controls['email'].touched){
+        <div class="error">
+            @if(footerForm.controls['email'].errors?.['required']){
+                <span>Email is required*</span>
+            }
+            @if(footerForm.controls['email'].errors?.['pattern']){
+                <span>please enter a valid Email Format*</span>
+            }
+        </div>
+      }
+
+     <label>Subject:</label>
+    <input type="text" formControlName="subject"/>
+    <div class="error">
+       @if(footerForm.controls['subject'].errors?.['required'] && footerForm.controls['subject'].touched){
+                <span>Subject is required*</span>
+            }
+    </div>
+
+
+     <label>Message:</label><br>
+    <textarea formControlName="message"></textarea>
+    <div class="error">
+      @if(footerForm.controls['message'].errors?.['required'] && footerForm.controls['message'].touched){
+                <span>Message is required*</span>
+            }
+      
+    </div>
+    <button (click)="onSubmit()">Submit</button>
+    </div>
+  </form>
+
+
+
+<div class="get-company">
+  <h3>Company</h3><br>
+  <ul>
+    <li><a href="#aboutus">About Us</a></li>
+    <li><a href="#service">Service</a></li>
+    <li><a href="#team">Teams</a></li>
+    <li><a href="#careers">Careers</a></li>
+    <li><a href="#WhyUs">Why Us</a></li>
+  </ul>
+</div>
+
+<div class="get-address">
+<h3 >Address</h3>
+<p>AASLIN Technologies Private Limited</p>
+<p>Plot No.4-51-7,2nd & 3rd Floor,</p>
+<p>Pavan Adithya,Post officeRoad,</p>
+<p>Lawsons Bay Colony,Pedda Waltair,</p>
+<p>Visakhapatnam-530017</p>
+</div>
+</div>
+</div>
+<footer class="footCopyRight">
+  © 2025 Copyright by AASLIN Developers. All rights reserved.
+</footer>
+</div>
+
+
+
+
+
+
+
