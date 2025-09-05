@@ -26,7 +26,7 @@ public class SavedJob {
 
     @ManyToOne
     @JoinColumn(name = "jobseeker_email", nullable = false)
-    private JobSeekerProfile jobseekerProfile; //
+    private JobSeekerProfile jobseekerProfile; 
 
     private LocalDate applicationDeadline;
 
