@@ -2,6 +2,9 @@ package com.aaslin.JobPortal.userProfile.service;
 
 import com.aaslin.JobPortal.userProfile.model.RegisterUser;
 import com.aaslin.JobPortal.userProfile.repository.AuthRepository;
+
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -30,9 +33,16 @@ public class AuthService {
         mailService.sendSimpleEmail(receiptEmail);
     }
 
-	public boolean checkCredentials(String email, String password) {
-		RegisterUser user = authRepo.findById(email) .orElseThrow(()-> new RuntimeException("User not registered"));
-		return passwordEncoder.matches(password, user.getPasswordHash());
-		
+    public boolean checkCredentials(String email, String password) {
+        Optional<RegisterUser> userOptional = authRepo.findById(email);
+        if (userOptional.isPresent()) {
+            return passwordEncoder.matches(password, userOptional.get().getPasswordHash());
+        }
+        return false;
+    }
+
+
+	public boolean checkUser(String email) {
+		return authRepo.existsById(email);
 	}
 }
