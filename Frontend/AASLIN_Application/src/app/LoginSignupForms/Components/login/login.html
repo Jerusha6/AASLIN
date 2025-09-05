@@ -1,5 +1,5 @@
 <div class="container">
-    <form id="form" [formGroup]="form" >
+    <form id="form" [formGroup]="form" (ngSubmit)="login()"> 
         <h1>  Login </h1>
         <div class="input-Div">
             <label class="label-class" for="username">Username</label>
@@ -14,10 +14,7 @@
             <div class="buttonDiv">
                 <button id="loginButton" type="submit">Login</button>
             </div>
-            <p class="signUp" (click)="signupPage()">Sign Up</p>
+            <p class="signUp" (click)="signupPage()" >Sign Up</p>
         </div>
     </form>
 </div>
-
-
-

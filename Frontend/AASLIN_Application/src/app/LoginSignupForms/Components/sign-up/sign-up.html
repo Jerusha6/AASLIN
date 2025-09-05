@@ -43,12 +43,12 @@
         </div>
     }
      <label>Password:</label><br>
-        <input  type="password" placeholder="Enter your password" formControlName="password" autocomplete="off"/><br>
+        <input  type="password" placeholder="Enter your password" formControlName="passwordHash" autocomplete="off"/><br>
         <div class="error">
-            @if(signupForm.controls['password'].errors?.['required'] && signupForm.controls['password'].touched){
+            @if(signupForm.controls['passwordHash'].errors?.['required'] && signupForm.controls['passwordHash'].touched){
                 <span>Password is Required*</span>
             }
-             @if(signupForm.controls['password'].errors?.['minlength'] && signupForm.controls['password'].touched){
+             @if(signupForm.controls['passwordHash'].errors?.['minlength'] && signupForm.controls['passwordHash'].touched){
                 <span>Password must be atleast 6 characters*</span>
             }
         </div>
