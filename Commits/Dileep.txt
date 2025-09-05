@@ -13,4 +13,5 @@ Password Update Completed, Signup form api integration, Email verification
 05 sep
 
 3.
-Login Validation using api, Email Otp verification, routing update,
+Login Validation api integration, Email Otp verification, routing update,
+182af27d8f49609f98828a6eaff9a6c250ffe352 
