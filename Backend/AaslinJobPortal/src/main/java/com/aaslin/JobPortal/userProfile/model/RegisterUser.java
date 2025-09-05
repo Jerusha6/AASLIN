@@ -32,8 +32,8 @@ public class RegisterUser {
     @Builder.Default
     private String role="JOBSEEKER"; //Defaultly assigning jobseeker as role to a new user.
 
-    @OneToOne(mappedBy = "registerUser")
-    private UserEducationInfo userEducationInfo;
+//    @OneToOne(mappedBy = "registerUser")
+//    private UserEducationInfo userEducationInfo;
 
     @OneToOne(mappedBy = "registerUser")
     private JobSeekerProfile jobSeekerProfile;

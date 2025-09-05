@@ -26,12 +26,12 @@ export class EmailVerification {
     const interval = setInterval(()=>{
       timeleft--;
       if(timeleft > 0){
-        this.buttonText  = `Send OTP in \n${timeleft}`;
+        this.buttonText  = `Resend in \n${timeleft}`;
       }
       else{
         clearInterval(interval);
         this.sendOtpButton = false;
-        this.buttonText = "Send OTP";
+        this.buttonText = "Resend OTP";
       }
     },1000);
     const url = `http://localhost:8080/careers/send-email-otp?receiptEmail=${this.form.value.email}`;

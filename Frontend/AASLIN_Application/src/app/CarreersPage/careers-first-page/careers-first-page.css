@@ -1,15 +1,313 @@
-.careerImage{
-    width:25%;
-    height:25%;
-    border-radius:100%;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.main {
+    width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.head {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+     width: 100%;
+     flex-wrap: wrap; 
+    
+}
+
+.merged {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.merged h2 {
+    margin: 0;
+    font-size: 4em;
+    color: #0e2240;
+    font-size: clamp(2em, 8vw, 4em); 
+}
+
+.merged p {
+    color: #666;
+    font-size:1rem;
+}
+
+.searchTitle {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    gap: 10px;
+}
+
+.searchTitle input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.searchTitle button {
+    padding: 10px 20px;
+    background-color: #1e4888;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+
+
+.searchTitle {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    gap: 10px; 
+    flex-wrap: nowrap;
+}
+
+.searchTitle input {
+    flex-grow: 1; 
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    min-width: 150px; 
+}
+
+.searchTitle button {
+    flex-shrink: 0; 
+    padding: 10px 20px;
+    background-color: #1e4888;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+.searchTitle button:hover {
+    background-color: #0e2240;
+}
+.careerImage {
+    width: 20%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 30px;
     display:flex;
-    float:right;
+    justify-content: end;
 }
+.rolecards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; 
+    gap: 20px; 
+    padding:20px;
+}
+
+.card {
+    flex: 1 1 220px; 
+    max-width: 400px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden; 
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px); 
+}
+
+
 .example-card {
-  max-width: 200px;
-  max-height:200px;
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+    border: 1px solid #e0e0e0;
 }
-.rolecards{
+
+.example-card img {
+    width: 100%;
+    height: 270px; 
+    object-fit: cover; 
+}
+
+.mat-card-content {
+    padding: 16px;
+    text-align: center;
+    overflow: hidden; 
+}
+
+.mat-card-content h4 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mat-card-content p {
+    font-size: 0.9em;
+    color: #666;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .rolecards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 400px;
+    }
+   head {
+        flex-direction: column;
+        align-items: center;
+    }
+    .careerImage {
+        margin-top: 20px;
+        max-width: 180px;
+    }
+      .merged h2 {
+        font-size: 2.5em; 
+    }
+}    @media (max-width: 480px) {
+    .merged h2 {
+        font-size: 2em;
+    }
+}
+@media (max-width: 500px) {
+    .searchTitle {
+        flex-direction: column; 
+        gap: 15px;
+    }
+    .searchTitle input {
+        width: 100%; 
+        max-width: none;
+        box-sizing: border-box; 
+    }
+    .searchTitle button {
+        width: 100%; 
+    }
+}
+
+.error{
+    color:red;
+}
+.footer {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 30px; 
+    padding: 20px;
+    
+}
+
+.footHead {
+    text-align: center;
+    margin-bottom: 20px;
+    color: red; 
     display:flex;
 }
 
+.footHead h2 {
+    font-size: 2.5em;
+    color: #be2240;
+}
+.contactForm, .get-company, .get-address {
+    flex: 1 1 300px; 
+    min-width: 250px; 
+    margin: 10px; 
+}
+.contactForm form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contactForm input, .contactForm textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.contactForm button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #2864be;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width:100%;
+}
+.contactForm button:hover{
+    background-color: #0e2240;
+}
+.get-company ul {
+    list-style: none;
+    padding: 0;
+}
+.get-company{
+    margin-left:150px;
+}
+
+.get-company a {
+    text-decoration: none;
+    color: #666;
+}
+
+.get-address p {
+    margin: 5px 0;
+    color: #666;
+}
+.footMerge{
+    display:flex;
+}
+.get-company h3{
+    color:#0e2240;
+}
+.contactForm h2{
+      color:#0e2240;
+}
+@media (max-width: 768px) {
+    .footMerge {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .contactForm, .get-company, .get-address {
+        width: 90%; 
+        max-width: 500px;
+        margin: 15px 0; 
+        text-align: center;
+    }
+}
+.footCopyRight {
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9em;
+    color: #666;
+    background-color: #e0e0e0;
+}
