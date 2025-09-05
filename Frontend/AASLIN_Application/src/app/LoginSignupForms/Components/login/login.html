@@ -12,7 +12,7 @@
             <span class='error' *ngIf="form.controls['password'].errors?.['minlength']">Minimum 6 characters </span>
             <p class="forgot" (click)="forgotPassword()">Forgot Password?</p>
             <div class="buttonDiv">
-                <button id="loginButton" type="submit">Login</button>
+                <button id="loginButton" type="submit" (click)="login()">Login</button>
             </div>
             <p class="signUp" (click)="signupPage()">Sign Up</p>
         </div>
