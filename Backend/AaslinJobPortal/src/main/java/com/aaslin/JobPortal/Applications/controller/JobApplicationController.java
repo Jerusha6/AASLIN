@@ -20,7 +20,7 @@ public class JobApplicationController {
         JobApplication savedApp = applicationService.submitApplication(application);
         return ResponseEntity.ok(savedApp);
     }
-    @GetMapping("/applications/id")
+    @GetMapping("/applications/{id}")
     public ResponseEntity<JobApplication> getApplicationById(@PathVariable String id) {
         return ResponseEntity.ok(applicationService.getApplicationById(id));
     }
@@ -29,13 +29,13 @@ public class JobApplicationController {
         return ResponseEntity.ok(applicationService.getApplicationForJobPost(id));
     }
 
-    @PutMapping("/applications/id")
+    @PutMapping("/applications/{id}")
     public ResponseEntity<JobApplication> updateApplicationStatus(@PathVariable String id,
                                                                   @RequestParam String status) {
         JobApplication updatedApp = applicationService.updateApplicationStatus(id, status);
         return ResponseEntity.ok(updatedApp);
     }
-    @DeleteMapping("/applications/id")
+    @DeleteMapping("/applications/{id}")
     public ResponseEntity<String> withdrawApplication(@PathVariable String id,
                                                       @RequestParam String seekerEmail) {
         applicationService.withdrawApplication(id, seekerEmail);

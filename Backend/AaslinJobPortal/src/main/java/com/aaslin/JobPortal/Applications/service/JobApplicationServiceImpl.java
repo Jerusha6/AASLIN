@@ -22,6 +22,8 @@ public class JobApplicationServiceImpl implements JobApplicationService {
 
     @Override
     public JobApplication submitApplication(JobApplication application) {
+        if(application == null) throw new RuntimeException("Application cannot be null");
+
         JobPost jobPost = jobPostRepository.findById(application.getJobPost().getId())
                 .orElseThrow(() -> new RuntimeException("JobPost not found"));
 
@@ -43,7 +45,7 @@ public class JobApplicationServiceImpl implements JobApplicationService {
 
     @Override
     public List<JobApplication> getApplicationForJobPost(String jobPostId) {
-        JobPost jobPost = jobPostRepository.findById(jobPostId)
+        jobPostRepository.findById(jobPostId)
                 .orElseThrow(() -> new RuntimeException("JobPost not found: " + jobPostId));
         return applicationRepository.findByJobPostId(jobPostId);
     }
