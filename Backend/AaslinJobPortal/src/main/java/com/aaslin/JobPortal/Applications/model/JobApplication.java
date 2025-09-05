@@ -30,7 +30,7 @@ public class JobApplication {
     }
 
     @Enumerated(EnumType.STRING)
-    private ApplicationStatus status;
+    private ApplicationStatus status = ApplicationStatus.PENDING;
 
     @Column(length = 200)
     private String linkedin;
@@ -52,6 +52,6 @@ public class JobApplication {
     private JobPost jobPost;
 
     @ManyToOne
-    @JoinColumn(name = "jobseeker_email", nullable = false)
+    @JoinColumn(name = "job_seeker_email", nullable = false)
     private JobSeekerProfile jobseekerProfile;
 }

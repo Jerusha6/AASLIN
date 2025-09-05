@@ -23,19 +23,36 @@ public class AuthController {
     
 
     @GetMapping("/send-email-otp")
-    public void verifyEmail(@RequestParam String receiptEmail){
+    public ResponseEntity<String> verifyEmail(@RequestParam String receiptEmail){
         service.verifyEmail(receiptEmail);
+        return ResponseEntity.ok("Otp sent successfully");
+    }
+    
+    @GetMapping("/verifyOtp")
+    public ResponseEntity<String> verifyOtp(@RequestParam String email, @RequestParam String otp) {   	
+    	return ResponseEntity.ok(service.verifyOtp(email, otp));
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<Boolean> validateUser(@RequestParam String email, @RequestParam String password){
+    @GetMapping("/login")
+    public ResponseEntity<String> validateUser(@RequestParam String email, @RequestParam String password){
+    	boolean isUserExist = service.checkUser(email);
     	boolean isValid = service.checkCredentials(email, password);
-		return ResponseEntity.ok(isValid);
+    	if(isUserExist) {
+    		if(isValid) {
+        		return ResponseEntity.ok("Login successful");
+        	}
+        	else {
+        		return ResponseEntity.ok("Login failed");
+        	}
+    	}
+    	else {
+    		return  ResponseEntity.ok("User not found");
+    	}   			
     }
 
     @PostMapping("/logout")
     public void endSession(){
-
+    	
     }
 
     @PostMapping("/forgot-password")

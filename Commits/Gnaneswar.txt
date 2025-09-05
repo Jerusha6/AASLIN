@@ -11,3 +11,11 @@ commit ID 8859e3d4760dcf7653688d105052102e5f16104a
 2.
 Modified User Controller and User Service
 commit ID a1c02c27d0fcdc8566cdd5c3235e3536d82d53d7
+
+-------------------------------------------------------
+
+05 sep
+
+2.
+Added SavedJob Controller, Repository and Service
+commit ID ae085e1d9ca3adbc9cc42bde22c2922370ee1e28
