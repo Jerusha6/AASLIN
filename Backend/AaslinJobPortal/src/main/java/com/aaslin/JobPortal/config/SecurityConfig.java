@@ -22,43 +22,39 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-	private final JwtAuthenticationFilter jwtAuthFilter;
-	private final CustomUserDetailsService customUserDetailsService;
-	
-	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-	    http.csrf(csrf -> csrf.disable())
-	        .authorizeHttpRequests(auth -> auth
-	           
-	            .requestMatchers("/careers/admin/**").hasAuthority("ADMIN")
-	            .requestMatchers("/careers/jobseeker/**").hasAuthority("JobSeeker")
-	            .anyRequest().permitAll()
-	        )
-	        .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-	        .authenticationProvider(authenticationProvider())
-	        .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+    private final JwtAuthenticationFilter jwtAuthFilter;
+    private final CustomUserDetailsService customUserDetailsService;
 
-	    return http.build();
-	}
-	
-	@Bean
-	public AuthenticationProvider authenticationProvider() {
-		
-		DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-		authProvider.setUserDetailsService(customUserDetailsService);
-		authProvider.setPasswordEncoder(passwordEncoder());
-		return authProvider;
-	}
-	
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
-	
-	@Bean
-	
-	public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
-		return config.getAuthenticationManager();
-		
-	}
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http.csrf(csrf -> csrf.disable())
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/careers/admin/**").hasAuthority("ADMIN")
+                .requestMatchers("/careers/jobseeker/**").hasAuthority("JobSeeker")
+                .anyRequest().permitAll()
+            )
+            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .authenticationProvider(authenticationProvider())
+            .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+
+        return http.build();
+    }
+
+    @Bean
+    public AuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+        authProvider.setUserDetailsService(customUserDetailsService);
+        authProvider.setPasswordEncoder(passwordEncoder());
+        return authProvider;
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+        return config.getAuthenticationManager();
+    }
 }

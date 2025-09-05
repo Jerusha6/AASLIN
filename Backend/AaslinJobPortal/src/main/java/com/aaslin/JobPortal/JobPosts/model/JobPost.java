@@ -7,9 +7,9 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -18,7 +18,6 @@ import java.util.Set;
 @Entity
 public class JobPost {
 
-    @Autowired
     @Transient
     private CustomIDGenerator generator;
 
@@ -28,7 +27,7 @@ public class JobPost {
 
     @PrePersist
     public void generateId() {
-        if (id == null) {
+        if (id == null && generator != null) {
             id = generator.generateCustomId("JOBID");
         }
     }
@@ -47,7 +46,7 @@ public class JobPost {
     @ElementCollection
     @CollectionTable(name = "jobpost_skills", joinColumns = @JoinColumn(name = "job_post_id"))
     @Column(name = "skill")
-    private Set<String> skillsRequired;
+    private Set<String> skillsRequired = new HashSet<>();
 
     @CreationTimestamp
     private LocalDateTime createdAt;
@@ -57,9 +56,9 @@ public class JobPost {
 
     private Boolean isActive = Boolean.TRUE;
 
-    @OneToMany(mappedBy = "jobPost")
-    private Set<JobApplication> applications;
+    @OneToMany(mappedBy = "jobPost", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<JobApplication> applications = new HashSet<>();
 
-    @OneToMany(mappedBy = "jobPost")
-    private Set<SavedJob> savedJobs;
+    @OneToMany(mappedBy = "jobPost", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<SavedJob> savedJobs = new HashSet<>();
 }

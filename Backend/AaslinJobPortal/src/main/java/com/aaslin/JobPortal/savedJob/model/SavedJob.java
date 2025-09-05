@@ -2,7 +2,7 @@ package com.aaslin.JobPortal.savedJob.model;
 
 import com.aaslin.JobPortal.JobPosts.model.JobPost;
 import com.aaslin.JobPortal.userProfile.model.JobSeekerProfile;
-
+import com.aaslin.JobPortal.utils.CustomIDGenerator;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -25,11 +25,21 @@ public class SavedJob {
     private JobPost jobPost;
 
     @ManyToOne
-    @JoinColumn(name = "jobseeker_email", nullable = false)
-    private JobSeekerProfile jobseekerProfile; //
+    @JoinColumn(name = "job_seeker_email", nullable = false)
+    private JobSeekerProfile jobseekerProfile;
 
     private LocalDate applicationDeadline;
 
     @UpdateTimestamp
     private LocalDateTime savedAt;
+
+    @Transient
+    private CustomIDGenerator generator;
+
+    @PrePersist
+    public void prePersist() {
+        if (id == null && generator != null) {
+            id = generator.generateCustomId("SAVEDJOB");
+        }
+    }
 }
