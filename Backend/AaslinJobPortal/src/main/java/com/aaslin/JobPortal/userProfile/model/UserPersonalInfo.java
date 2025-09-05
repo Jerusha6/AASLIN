@@ -1,14 +1,12 @@
 package com.aaslin.JobPortal.userProfile.model;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -19,11 +17,11 @@ public class UserPersonalInfo {
     @Id
     private String email;
 
-    private String FatherName;
+    private String fatherName;
 
     private String gender;
 
-	private LocalDate dob;
+    private LocalDate dob;
 
     private String city;
 
@@ -45,8 +43,8 @@ public class UserPersonalInfo {
     @MapsId
     @JoinColumn(name = "email")
     private RegisterUser registerUser;
-    
+
     @OneToOne
-    @JoinColumn(name="userPersonalInfo")
+    @JoinColumn(name = "jobseeker_email", referencedColumnName = "email")
     private JobSeekerProfile jobSeekerProfile;
 }

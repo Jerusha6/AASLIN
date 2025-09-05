@@ -3,7 +3,6 @@ package com.aaslin.JobPortal.userProfile.service;
 import com.aaslin.JobPortal.admin.repository.PortalAdminsRepository;
 import com.aaslin.JobPortal.userProfile.model.RegisterUser;
 import com.aaslin.JobPortal.userProfile.repository.AuthRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -17,18 +16,20 @@ import java.util.Collections;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
-    @Autowired
     private final AuthRepository authRepository;
     private final PortalAdminsRepository portalAdminsRepository;
 
-    public CustomUserDetailsService(AuthRepository authRepository,
-                                    PortalAdminsRepository portalAdminsRepository) {
+    public CustomUserDetailsService(AuthRepository authRepository, PortalAdminsRepository portalAdminsRepository) {
         this.authRepository = authRepository;
         this.portalAdminsRepository = portalAdminsRepository;
     }
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        if (email == null || email.isEmpty()) {
+            throw new UsernameNotFoundException("Email cannot be null or empty");
+        }
+
         RegisterUser user = authRepository.findById(email)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found: " + email));
 
