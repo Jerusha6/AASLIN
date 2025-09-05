@@ -2,12 +2,11 @@ package com.aaslin.JobPortal.savedJob.controller;
 
 import java.util.List;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import com.aaslin.JobPortal.savedJob.model.SavedJob;
 import com.aaslin.JobPortal.savedJob.service.SavedJobService;
-
-import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/careers/saved-jobs")
