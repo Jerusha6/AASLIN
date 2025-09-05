@@ -7,6 +7,6 @@ import { Injectable } from '@angular/core';
 export class EmailService {
   constructor(private http : HttpClient){}
   sendMailOtp(url:string){
-    return this.http.get(url);
+    return this.http.get(url, {responseType: 'text'});
   }
 }

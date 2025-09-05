@@ -2,6 +2,7 @@ package com.aaslin.JobPortal.userProfile.service;
 
 import com.aaslin.JobPortal.userProfile.model.RegisterUser;
 import com.aaslin.JobPortal.userProfile.repository.AuthRepository;
+import com.aaslin.JobPortal.utils.SimpleOtpService;
 
 import java.util.Optional;
 
@@ -19,6 +20,8 @@ public class AuthService {
     private PasswordEncoder passwordEncoder;
     @Autowired
     private MailService mailService;
+    @Autowired
+    private SimpleOtpService otpService;
     
     public ResponseEntity<String> registerUser(RegisterUser request){
     	if (authRepo.existsById(request.getEmail())) {
@@ -45,4 +48,11 @@ public class AuthService {
 	public boolean checkUser(String email) {
 		return authRepo.existsById(email);
 	}
+
+    public String verifyOtp(@RequestParam String email, @RequestParam String otp) {
+        boolean valid = otpService.verifyOtp(email, otp);
+        return valid ? "OTP verified successfully." : "Invalid or expired OTP.";
+    }
+
+
 }
