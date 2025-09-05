@@ -22,10 +22,11 @@ public class DataInitializer implements CommandLineRunner {
     public void run(String... args) throws Exception {
         if (authRepo.findById("jerusha.aaslin@example.com").isEmpty()) {
             RegisterUser admin = RegisterUser.builder()
-                .email("jerusha.aaslin@example.com")
+                .email("jerusha.aaslin@gmail.com")
                 .firstName("Jerusha")
                 .lastName("Rani")
-                .passwordHash(passwordEncoder.encode("admin"))
+                .passwordHash(passwordEncoder.encode("admin00"))
+                .phoneNumber("9866745889")
                 .role("ADMIN")
                 .isActive(true)
                 .build();

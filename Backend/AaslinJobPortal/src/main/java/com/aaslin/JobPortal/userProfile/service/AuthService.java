@@ -7,6 +7,7 @@ import com.aaslin.JobPortal.utils.SimpleOtpService;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -37,9 +38,9 @@ public class AuthService {
     }
 
     public boolean checkCredentials(String email, String password) {
-        Optional<RegisterUser> userOptional = authRepo.findById(email);
-        if (userOptional.isPresent()) {
-            return passwordEncoder.matches(password, userOptional.get().getPasswordHash());
+        Optional<RegisterUser> user = authRepo.findById(email);
+        if (user.isPresent()) {
+            return passwordEncoder.matches(password, user.get().getPasswordHash());
         }
         return false;
     }
@@ -53,6 +54,24 @@ public class AuthService {
         boolean valid = otpService.verifyOtp(email, otp);
         return valid ? "OTP verified successfully." : "Invalid or expired OTP.";
     }
+
+	public ResponseEntity<String> resetPassword(String email, String password) {
+		
+		Optional<RegisterUser> user = authRepo.findById(email);
+        if (user.isPresent()) {
+        	if(passwordEncoder.matches(user.get().getPasswordHash(), password)) {
+        		return ResponseEntity.ok("Password must not be same as previous");
+        	}
+        	else {
+        		 user.get().setPasswordHash(passwordEncoder.encode(password));
+        		 return ResponseEntity.ok("Password modified successfully");
+        	}
+           
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+		
+		
+	}
 
 
 }

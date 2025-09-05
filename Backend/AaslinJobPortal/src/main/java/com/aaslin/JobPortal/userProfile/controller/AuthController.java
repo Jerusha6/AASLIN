@@ -41,7 +41,7 @@ public class AuthController {
         return ResponseEntity.ok("Otp sent successfully");
     }
     
-    @GetMapping("/verifyOtp")
+    @PostMapping("/verifyOtp")
     public ResponseEntity<String> verifyOtp(@RequestParam String email, @RequestParam String otp) {   	
     	return ResponseEntity.ok(service.verifyOtp(email, otp));
     }
@@ -61,20 +61,20 @@ public class AuthController {
         return ResponseEntity.ok(new AuthResponse(jwtToken));
     }
 
-
     @PostMapping("/logout")
     public ResponseEntity<String> endSession(){
     	return ResponseEntity.ok("Logged out successfully");
     	}
 
     @PostMapping("/forgot-password")
-    public void forgotPasswordRedirect(){
-
+    public ResponseEntity<String> sendOtpToVerifyUser(String email){
+    	service.verifyEmail(email);
+    	return ResponseEntity.ok("OTP sent successfully");
     }
 
-    @PostMapping("/reset-password")
-    public void modifyPassword(){
-
+    @PutMapping("/reset-password")
+    public ResponseEntity<String> modifyPassword(@RequestParam String email, @RequestParam String password){
+    	 return service.resetPassword(email,password);
     }
 
     @GetMapping("/profile")
