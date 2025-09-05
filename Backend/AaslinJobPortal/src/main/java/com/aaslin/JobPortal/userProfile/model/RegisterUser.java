@@ -27,7 +27,7 @@ public class RegisterUser {
     @CreationTimestamp
     private LocalDateTime createdAt;
 
-    private Boolean isActive;
+    private Boolean isActive=true;
     
     @Builder.Default
     private String role="JOBSEEKER"; //Defaultly assigning jobseeker as role to a new user.
