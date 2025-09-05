@@ -9,3 +9,9 @@ commit ID 308b2e9c16dabbd6f054ab606b31d3080f95636a
 2.
 created apis for admins and jobprofiles
 commit ID 56355ee41f37e813dc5e4326c742d147c82cd6ac
+
+05 sep 
+
+3.
+created apis for Job Application and updated the security codes
+commit ID 56355ee41f37e813dc5e4326c742d147c82cd6ac
