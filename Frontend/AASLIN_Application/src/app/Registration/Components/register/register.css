@@ -1,10 +1,29 @@
+.container{
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
 
+.mainDiv{
+  width: 80%;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  
+}
 
 .formFieldInput {
   width: 100%;
+  background-color: white;
+  color: black;
 }
+
 .mat-stepper-horizontal {
   margin-top: 8px;
+  background-color: white;
+  padding: 0.5%;
 }
 
 .mat-mdc-form-field {

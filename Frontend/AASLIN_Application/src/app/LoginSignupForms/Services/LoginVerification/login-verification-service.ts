@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginVerificationService {
   constructor(private http : HttpClient){}
-  loginVerification(url : string){
-    return this.http.get(url)
+  loginVerification(url: string){
+    return this.http.get(url, { responseType: 'text' as const });
   }
 }

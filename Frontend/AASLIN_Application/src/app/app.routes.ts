@@ -5,11 +5,14 @@ import { ForgotPasswordUpdate } from './LoginSignupForms/Components/forgot-passw
 import { ForgotPassword } from './LoginSignupForms/Components/forgot-password/forgot-password';
 import { CareersFirstPage } from './CarreersPage/careers-first-page/careers-first-page';
 import { Register } from './Registration/Components/register/register';
+import { EmailVerification } from './LoginSignupForms/Components/email-verification/email-verification';
 export const routes: Routes = [
-    {path:'signup',component:SignUp},
-    {path:'login', component:Login},
+    {path:'careers/register',component:SignUp},
+    {path:'careers/login', component:Login},
     {path:'UpdateForgotPassword', component:ForgotPasswordUpdate},
     {path:'forgotPassword', component:ForgotPassword},
     {path:'careersPage', component:CareersFirstPage},
-    {path:'register', component:Register}
+    {path:'registEer', component:Register},
+    {path:'careers/send-email-otp',component:EmailVerification}
 ];
+

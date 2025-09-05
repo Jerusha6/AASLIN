@@ -99,3 +99,20 @@ label {
     font-size: 13px;
     display: block;
 }
+
+.loginError{
+    color: rgb(148, 32, 32) ;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.success{
+    color: green;
+    font-size: 13px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
