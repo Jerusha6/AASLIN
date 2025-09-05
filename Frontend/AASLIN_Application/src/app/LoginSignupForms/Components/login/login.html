@@ -14,10 +14,6 @@
             <div class="buttonDiv">
                 <button id="loginButton" type="submit">Login</button>
             </div>
-            <span class="loginError" *ngIf="incorrectPassword">Sorry, your password was incorrect. Please check your password or fogot password.</span>
-            <span class="loginError" *ngIf="userNotFound">Sorry, username was incorrect or user not found. Please signup.</span>
-            <span class="success" *ngIf="loginSuccessful">Login Successful</span>   
-            <span class="loginError">{{error}}</span>     
             <p class="signUp" (click)="signupPage()" >Sign Up</p>
         </div>
     </form>
