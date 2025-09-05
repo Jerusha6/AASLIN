@@ -16,6 +16,12 @@ commit ID a1c02c27d0fcdc8566cdd5c3235e3536d82d53d7
 
 05 sep
 
-2.
+3.
 Added SavedJob Controller, Repository and Service
 commit ID ae085e1d9ca3adbc9cc42bde22c2922370ee1e28
+
+4.
+Modified SavedJobController and SavedJobServiceImp
+commit ID f99dd51762cd237108d25a638b3602572ffea1bc
+
+-------------------------------------------------------

@@ -2,8 +2,11 @@ package com.aaslin.JobPortal.JobPosts.service;
 
 import com.aaslin.JobPortal.JobPosts.model.JobPost;
 import com.aaslin.JobPortal.JobPosts.repository.JobPostRepository;
+import com.aaslin.JobPortal.utils.CustomIDGenerator;
 
 import lombok.RequiredArgsConstructor;
+
+import org.hibernate.generator.Generator;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,9 +16,13 @@ import java.util.List;
 public class JobPostServiceImpl implements JobPostService {
 
     private final JobPostRepository jobPostRepository;
+    private final CustomIDGenerator customIdGenerator;
 
     @Override
     public JobPost createJobPost(JobPost jobPost) {
+    	if(jobPost.getId()==null) {
+    		jobPost.setId(customIdGenerator.generateCustomId("JOBID"));
+    	}
         return jobPostRepository.save(jobPost);
     }
 

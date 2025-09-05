@@ -9,12 +9,14 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 public class JobApplication {
-
+	@Autowired
     @Transient
     private CustomIDGenerator generator;
 

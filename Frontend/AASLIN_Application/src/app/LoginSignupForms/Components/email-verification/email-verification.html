@@ -1,0 +1,30 @@
+<div class="container">
+    <form id="form" [formGroup]="form" >
+        <h1>  Email Verification </h1>
+        <div class="input-Div">
+            <div class="emailDiv">
+                <div class="section">
+                    <label class="label-class" for="email">Email </label>
+                    <input class="input-class" name="email" type="email" placeholder="Enter your email" formControlName="email">
+                    <span class='error' *ngIf="form.controls['email'].errors?.['required'] && form.controls['email'].touched">Email is required</span>
+                </div>
+                <div class="buttonDiv">
+                    <button [disabled]="sendOtpButton" (click)="sendOtp()">{{buttonText}}</button>
+                </div>
+            </div>
+            <div class="otpDiv">
+                <div class="section">
+                    <label class="label-class" for="otp">OTP </label>
+                    <input class="input-class" name="otp" type="text" placeholder="Enter OTP" formControlName="otp">
+                    <span class='error' *ngIf="form.controls['email'].errors?.['required'] && form.controls['otp'].touched">Enter OTP</span>
+                </div>
+                <div class="buttonDiv">
+                    <button (click)="verify()">Versfvwfdify</button>
+                </div>
+            </div>
+                <div class="buttonDiv">
+                    <button id="continueButton" type="submit" [disabled]="true">Continue</button>
+                </div>
+        </div>
+    </form>
+</div>
