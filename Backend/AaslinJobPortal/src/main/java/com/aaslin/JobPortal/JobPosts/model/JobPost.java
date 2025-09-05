@@ -8,6 +8,7 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -53,6 +54,8 @@ public class JobPost {
 
     @UpdateTimestamp
     private LocalDateTime updatedAt;
+    
+    private LocalDate applicationDeadline;
 
     private Boolean isActive = Boolean.TRUE;
 

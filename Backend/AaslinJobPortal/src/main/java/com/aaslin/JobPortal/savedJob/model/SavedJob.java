@@ -17,6 +17,7 @@ import java.time.LocalDateTime;
 public class SavedJob {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "saved_job_id", length = 50)
     private String id;
 
@@ -26,6 +27,7 @@ public class SavedJob {
 
     @ManyToOne
     @JoinColumn(name = "job_seeker_email", nullable = false)
+
     private JobSeekerProfile jobseekerProfile;
 
     private LocalDate applicationDeadline;

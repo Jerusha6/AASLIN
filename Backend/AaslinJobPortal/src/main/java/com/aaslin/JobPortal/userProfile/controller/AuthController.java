@@ -23,8 +23,14 @@ public class AuthController {
     
 
     @GetMapping("/send-email-otp")
-    public void verifyEmail(@RequestParam String receiptEmail){
+    public ResponseEntity<String> verifyEmail(@RequestParam String receiptEmail){
         service.verifyEmail(receiptEmail);
+        return ResponseEntity.ok("Otp sent successfully");
+    }
+    
+    @GetMapping("/verifyOtp")
+    public ResponseEntity<String> verifyOtp(@RequestParam String email, @RequestParam String otp) {   	
+    	return ResponseEntity.ok(service.verifyOtp(email, otp));
     }
 
     @GetMapping("/login")
@@ -41,9 +47,7 @@ public class AuthController {
     	}
     	else {
     		return  ResponseEntity.ok("User not found");
-    	}
-    	
-		
+    	}   			
     }
 
     @PostMapping("/logout")
