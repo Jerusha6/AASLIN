@@ -26,7 +26,7 @@ public class JobPostController {
 
 	private final JobPostService jobPostService;
 	@PostMapping("/admin/post-job")
-	@PreAuthorize("hasAuthority('ADMIN')")
+	//@PreAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity<JobPost> createJobPost(@RequestBody JobPost jobPost){
 		return ResponseEntity.ok(jobPostService.createJobPost(jobPost));
 	}

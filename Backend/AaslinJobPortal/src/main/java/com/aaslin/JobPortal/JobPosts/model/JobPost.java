@@ -26,12 +26,12 @@ public class JobPost {
     @Column(name = "job_post_id", length = 50)
     private String id;
 
-    @PrePersist
-    public void generateId() {
-        if (id == null && generator != null) {
-            id = generator.generateCustomId("JOBID");
-        }
-    }
+//    @PrePersist
+//    public void generateId() {
+//        if (id == null && generator != null) {
+//            id = generator.generateCustomId("JOBID");
+//        }
+//    }
 
     @Column(length = 200, nullable = false)
     private String title;
